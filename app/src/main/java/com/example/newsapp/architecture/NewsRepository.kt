@@ -10,6 +10,7 @@ import com.example.newsapp.NewsModel
 import com.example.newsapp.retrofit.NewsApi
 import com.example.newsapp.retrofit.NewsDataFromJson
 import com.example.newsapp.retrofit.RetrofitHelper
+
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
@@ -59,7 +60,7 @@ class NewsRepository {
         val newsList = MutableLiveData<List<NewsModel>>()
 
         val call = RetrofitHelper.getInstance().create(NewsApi::class.java)
-            .getNews("in", category, BuildConfig.API_KEY) //put your api key here
+            .getNews("in", category, com.example.newsapp.BuildConfig.API_KEY) //put your api key here
 
         call.enqueue(object : Callback<NewsDataFromJson> {
             override fun onResponse(
